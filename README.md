@@ -1,5 +1,3 @@
-Absolutely ✅ — here’s your **reader-friendly, well-formatted Markdown version** of the write-up, ideal for GitHub or a report.
-I’ve added bullet points, headings, spacing, and emphasis to make it easier to skim and visually appealing.
 
 ---
 
@@ -62,6 +60,21 @@ While industrial SoCs are **large and complex**, BabySoC focuses on a **minimal 
 * 🧩 CPU–Memory–Peripheral communication
 * 🔁 Basic bus operations and interrupts
 * 📜 Memory mapping and register interfacing
+
+Key Features:
+
+RVMYTH – A simple RISC-V-based CPU core for instruction execution.
+
+PLL (Phase-Locked Loop) – 8× clock multiplier providing a stable clock for the CPU.
+
+DAC (10-bit Digital-to-Analog Converter) – Interfaces with analog devices and outputs analog signals.
+
+Primary Purpose:
+
+To integrate these IPs in a single SoC.
+
+To calibrate and test the analog part of the SoC.
+
 
 ---
 
