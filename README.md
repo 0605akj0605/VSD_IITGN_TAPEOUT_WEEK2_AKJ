@@ -211,7 +211,7 @@ V_\text{OUT} = \frac{r17}{1023} \times V_\text{REFSPAN} \quad (V_\text{REFSPAN} 
 ## VSDBabySoC Pre-Synthesis Observation
 
 ### 🖼️ Screenshot 1
-![VSDBabySoC Screenshot](image/pre_synth1.png)
+![VSDBabySoC Screenshot](images_week2/pre_synth1.png)
 
 In this simulation:
 
@@ -221,7 +221,7 @@ In this simulation:
 ---
 
 ### 🖼️ Screenshot 2
-![VSDBabySoC Screenshot](image/pre_synth2.png)
+![VSDBabySoC Screenshot](images_week2/pre_synth2.png)
 
 In this case:
 
