@@ -215,7 +215,7 @@ V_\text{OUT} = \frac{r17}{1023} \times V_\text{REFSPAN} \quad (V_\text{REFSPAN} 
 
 In this simulation:
 
-- The **`OUT`** output of the **DAC** (declared as a `real reg`) gives the **correct corresponding analog value**  **`0.48.48 `**.
+- The **`OUT`** output of the **DAC** (declared as a `real reg`) gives the **correct corresponding analog value**  **`0.4848 `**.
 - The **`OUT`** signal of the **BabySoC module** (declared as a `wire`) gives a **digital value** — here, **`0`**, which is a **simple round-off of the analog value**.
 
 ---
