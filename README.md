@@ -39,13 +39,6 @@ A **System-on-Chip (SoC)** integrates all essential computing components onto a 
 
 It is small enough for **learning core concepts** but still reflects real SoC design principles.
 
-📸 ***Architecture Placeholder:***
-
-```
-![BabySoC Architecture](path/to/babysoc_architecture.png)
-```
-
----
 
 ### 🔹 Role of Functional Modelling
 
