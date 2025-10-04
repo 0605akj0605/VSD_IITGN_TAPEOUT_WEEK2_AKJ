@@ -79,9 +79,9 @@ Functional models serve as **golden references** for RTL verification.
 
 📸 ***BabySoC architecture***
 
-```
+---
 ![VSDBabySoC Screenshot](images_week2/BabySoC_block.png)
-```
+
 
 ---
 
