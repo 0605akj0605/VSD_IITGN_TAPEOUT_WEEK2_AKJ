@@ -80,7 +80,7 @@ Functional models serve as **golden references** for RTL verification.
 📸 ***BabySoC architecture***
 
 ```
-![VSDBabySoC Screenshot](image/BabySoC_block.png)
+![VSDBabySoC Screenshot](images_week2/BabySoC_block.png)
 ```
 
 ---
@@ -211,7 +211,7 @@ V_\text{OUT} = \frac{r17}{1023} \times V_\text{REFSPAN} \quad (V_\text{REFSPAN} 
 ## VSDBabySoC Pre-Synthesis Observation
 
 ### 🖼️ Screenshot 1
-![VSDBabySoC Screenshot](images_week2/pre_synth_1.png)
+![VSDBabySoC Screenshot](images_week2/presynth_1.png)
 
 In this simulation:
 
