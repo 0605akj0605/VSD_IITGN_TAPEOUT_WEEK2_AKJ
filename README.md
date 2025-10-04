@@ -1,164 +1,118 @@
 
----
-
-# 🧠 Fundamentals of System-on-Chip (SoC) Design
 
 ---
 
-## 🔹 What is a System-on-Chip (SoC)?
-
-A **System-on-Chip (SoC)** integrates all essential components of a complete computing system onto a **single silicon chip**.
-It typically combines:
-
-* 🧮 **Processor (CPU)** – Executes instructions
-* 🧠 **Memory** – Stores data and code
-* ⚙️ **Peripherals** – Handles I/O and system operations
-* 🔗 **Interconnect Fabric** – Manages communication between all components
+# 🧠 VSDBabySoC — System-on-Chip (SoC) Learning & Simulation
 
 ---
 
-### ✳️ Why SoCs?
+## Part 1 — Fundamentals of SoC and BabySoC
 
-By integrating these subsystems, an SoC achieves:
+### 🔹 What is a System-on-Chip (SoC)?
 
-* ⚡ **Higher performance** – Faster data transfer between components
-* 🔋 **Lower power consumption** – Less off-chip communication
-* 📏 **Reduced size and cost** – Fewer chips and external components
-* 🧱 **Improved reliability** – Fewer inter-chip interfaces
+A **System-on-Chip (SoC)** integrates all essential computing components onto a **single silicon chip**, including:
 
-Modern SoCs power:
+* **CPU / Processor** – Executes instructions and manages control flow
+* **Memory** – Stores program instructions and data (SRAM, ROM, cache)
+* **Peripherals / IP Blocks** – Handle I/O and system tasks (UART, SPI, GPIO, timers, DMA)
+* **Interconnect / Bus / NoC** – Manages communication between modules
+* **Clock, Reset, Power Management** – Synchronizes operations and power domains
 
-* 📱 Smartphones
-* 🚗 Automotive controllers
-* 🔌 Embedded systems
-* 🧩 Edge AI devices
+**Benefits of SoC:**
 
-They blend **hardware and software co-design** into one tightly coupled platform.
+* ⚡ Higher performance – faster on-chip data transfers
+* 🔋 Lower power consumption – reduced off-chip communication
+* 📏 Reduced size and cost – fewer chips/components
+* 🧩 Improved reliability – fewer inter-chip interfaces
 
----
-
-## 🔹 Components of a Typical SoC
-
-| Component                          | Description                                                                         |
-| ---------------------------------- | ----------------------------------------------------------------------------------- |
-| **CPU / Processor Core**           | Executes instructions, manages computation and control flow.                        |
-| **Memory Subsystem**               | Includes on-chip SRAM, ROM/Flash, cache; may also connect to off-chip DRAM.         |
-| **Peripherals / IP Blocks**        | Handle I/O and system functions (UART, SPI, I²C, GPIO, timers, DMA).                |
-| **Interconnect / Bus / NoC**       | Provides data communication between CPU, memory, and peripherals (e.g., AMBA, AXI). |
-| **Clock, Reset, Power Management** | Synchronizes timing and controls power across subsystems.                           |
-
-💡 *Each block can be treated as a reusable **IP core**, enabling modular design and easy integration.*
+💡 *Examples:* Smartphones (Snapdragon), Automotive Controllers (NVIDIA DRIVE), IoT devices (ESP32), Edge AI processors (Google Coral TPU)
 
 ---
 
-## 🔹 Why BabySoC?
+### 🔹 Why BabySoC?
 
-**BabySoC** is a **simplified learning model** for understanding SoC design concepts.
+**BabySoC** is a **simplified learning model** for SoC concepts:
 
-While industrial SoCs are **large and complex**, BabySoC focuses on a **minimal yet complete system** that demonstrates:
+* Demonstrates CPU ↔ Memory ↔ Peripheral data flow
+* Teaches basic bus operations and interrupts
+* Shows memory mapping and register interfacing
 
-* 🧩 CPU–Memory–Peripheral communication
-* 🔁 Basic bus operations and interrupts
-* 📜 Memory mapping and register interfacing
+It is small enough for **learning core concepts** but still reflects real SoC design principles.
 
-**Key Features:**
-*RVMYTH – A simple RISC-V-based CPU core for instruction execution.
-*PLL (Phase-Locked Loop) – 8× clock multiplier providing a stable clock for the CPU.
-*DAC (10-bit Digital-to-Analog Converter) – Interfaces with analog devices and outputs analog signals.
+📸 ***Architecture Placeholder:***
 
-**Primary Purpose:**
-*To integrate these IPs in a single SoC.
-*To calibrate and test the analog part of the SoC.
-
-![VSDBabySoC Architecture](image/babysoc_architecture.png)
----
-
-### 🎯 Why Use BabySoC?
-
-BabySoC helps learners **grasp fundamental SoC concepts** such as:
-
-* Data flow between modules
-* Functional partitioning
-* Integration of components
-
-It avoids the overwhelming complexity of industrial SoCs like power domains, advanced verification, or timing closure — making it an **ideal entry point** for beginners.
+```
+![BabySoC Architecture](path/to/babysoc_architecture.png)
+```
 
 ---
 
-## 🔹 Role of Functional Modelling
+### 🔹 Role of Functional Modelling
 
-Before designing at the hardware (RTL) level, SoC designers begin with **functional modelling**, representing the **system’s behavior** at a higher abstraction level (in C/C++ or SystemC).
+Before RTL or physical design, SoC behavior is modeled at a higher abstraction (C/C++ or SystemC):
 
-### ✅ Purpose and Advantages
+* ✅ Validate architecture early
+* ⚖️ Explore design trade-offs
+* 💻 Enable early software/firmware development
+* 💰 Reduce verification cost/time
 
-* 🧩 **Validate architecture early** – Ensure correct functionality and data flow
-* ⚖️ **Explore design trade-offs** – Evaluate different architectures before committing to RTL
-* 💻 **Enable early software development** – Firmware can be built even before hardware exists
-* 🔍 **Reduce verification time and cost** – Catch logical errors before RTL simulation
-
-Functional models act as **golden references** for later stages such as **RTL verification, synthesis, and physical design**.
+Functional models serve as **golden references** for RTL verification.
 
 ---
 
-## 🔹 BabySoC in the Learning Journey
+### 🔹 BabySoC Learning Journey
 
-Learning SoC design through **BabySoC** mirrors the **real-world SoC development flow**:
-
-1. 🧠 **Functional Modelling** – Understand overall behavior at a high level
-2. 🧾 **RTL Design** – Implement CPU, memory, and bus logic in Verilog/VHDL
-3. 🧪 **Integration & Verification** – Simulate modules and compare with functional model
-4. ⚙️ *(Optional)* **Physical Design** – Perform synthesis, place-and-route, and timing analysis
+1. 🧩 **Functional Modelling** – Understand high-level behavior
+2. 💻 **RTL Design** – Implement modules in Verilog/VHDL
+3. 🧪 **Integration & Verification** – Combine modules and simulate
+4. ⚙️ *(Optional)* **Physical Design** – Synthesize, place & route
 
 ---
 
-### 🚀 The Learning Outcome
+## Part 2 — Simulation & Verification of VSDBabySoC
 
-This step-by-step journey — from **concept to silicon** — helps learners build a strong foundation in:
+### 🔹 What is VSDBabySoC?
 
-* SoC architecture
-* RTL and functional design
-* Verification flow
-* Hardware–software co-design
+**VSDBabySoC** is a **compact SoC** designed to integrate digital and analog IPs:
+
+* **RVMYTH** – Simple RISC-V CPU core
+* **PLL** – 8× Phase-Locked Loop for stable clock
+* **DAC** – 10-bit Digital-to-Analog Converter
+
+**Purpose:**
+
+* Integrate multiple IPs into a single SoC
+* Calibrate and verify analog output
+
+📸 ***BabySoC architecture***
+
+```
+![VSDBabySoC Screenshot](image/BabySoC_block.png)
+```
 
 ---
 
-> 🗣️ **In summary:**
-> A System-on-Chip is not just a processor — it’s a **complete mini-computer on a chip**, and **BabySoC** is the perfect sandbox to understand how every component inside that chip works together.
+### 🔹 Project Structure
 
----
-# Project:- Functional Simulation of BabySoC and verification of its workings
-🏗️ Project Structure
+```plaintext
 VSDBabySoC/
 ├── src/
-│   ├── include/       # Header files (*.vh)
-│   ├── module/        # Verilog + TLV modules
+│   ├── include/      # Header files (*.vh)
+│   ├── module/       # Verilog + TLV modules
 │   │   ├── vsdbabysoc.v   # Top-level module
 │   │   ├── rvmyth.v       # CPU
 │   │   ├── avsdpll.v      # PLL
 │   │   ├── avsddac.v      # DAC
 │   │   └── testbench.v    # Testbench
-└── output/            # Simulation outputs
+└── output/           # Simulation outputs
+```
 
-🛠️ Setup
-📥 Clone the Project
-cd ~/VLSI
-git clone https://github.com/manili/VSDBabySoC.git
-cd VSDBabySoC/
+---
 
+### 🛠️ Setup & TLV → Verilog Conversion
 
-You’ll see:
-
-src/ – Verilog/TLV modules
-
-images/ – Visuals and diagrams
-
-output/ – Simulation results
-
-🔧 TLV → Verilog Conversion
-
-Since RVMYTH is written in TL-Verilog (.tlv), we convert it to standard Verilog before simulation.
-
-# Install dependencies
+```bash
+# Install Python dependencies
 sudo apt update
 sudo apt install python3-venv python3-pip
 
@@ -171,12 +125,17 @@ pip install pyyaml click sandpiper-saas
 
 # Convert TLV → Verilog
 sandpiper-saas -i ./src/module/*.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/
+```
 
+✅ Output: `rvmyth.v` alongside other Verilog files.
 
-✅ Output: rvmyth.v alongside other Verilog files.
+---
 
-🧪 Simulation Flow
-🔹 Pre-Synthesis Simulation
+### 🧪 Simulation Flow
+
+#### Pre-Synthesis Simulation
+
+```bash
 mkdir -p output/pre_synth_sim
 
 iverilog -o output/pre_synth_sim/pre_synth_sim.out \
@@ -186,104 +145,122 @@ iverilog -o output/pre_synth_sim/pre_synth_sim.out \
 
 cd output/pre_synth_sim
 ./pre_synth_sim.out
+```
 
-🔹 View in GTKWave
+#### View Waveform in GTKWave
+
+```bash
 gtkwave output/pre_synth_sim/pre_synth_sim.vcd
+```
 
-🔍 Signals to Observe
+---
 
-⏱️ CLK → Input clock from PLL
+### 🔍 Signals to Observe
 
-🔄 reset → Reset signal
+* ⏱️ `CLK` → Input clock (from PLL)
+* 🔄 `reset` → Reset signal
+* 🎚 `OUT` → DAC output (digital in simulation)
+* 🔢 `RV_TO_DAC[9:0]` → 10-bit CPU output → DAC input
 
-🎚 OUT → DAC output (digital representation in simulation)
+---
 
-🔢 RV_TO_DAC[9:0] → 10-bit CPU output fed to DAC
+### 🧠 Instruction Program Driving BabySoC
 
-🧠 Instruction Program Driving BabySoC
-#	Instruction	Action
-0	ADDI r9, r0, 1	r9 = 1 (decrement step)
-1	ADDI r10, r0, 43	r10 = 43 (loop limit)
-2	ADDI r11, r0, 0	r11 = 0 (counter)
-3	ADDI r17, r0, 0	r17 = 0 (DAC input)
-4	ADD r17, r17, r11	Accumulate into r17
-5	ADDI r11, r11, 1	Increment counter
-6	BNE r11, r10, -4	Repeat loop until r11=43
-7	ADD r17, r17, r11	Accumulate r17
-8	SUB r17, r17, r11	Adjust r17
-9	SUB r11, r11, r9	Decrement counter
-10	BNE r11, r9, -4	Repeat loop until r11=1
-11	SUB r17, r17, r11	Final adjust
-12	BEQ r0, r0, ...	Infinite loop
-🔄 Execution Timeline
-Phase	Registers	r17 Value	Behavior
-Ramp (Loop1)	r11 = 0→42	r17 = Σ0..42 = 903	Monotonic increase
-Peak	r11 = 43	r17 = 946	Transient maximum
-Oscillation (Loop2)	r11 = 43→1	r17 = 903 ± r11	Oscillating decay
-Final	r11 = 1	r17 adjusted	Holds steady
+| #  | Instruction       | Action                   |
+| -- | ----------------- | ------------------------ |
+| 0  | ADDI r9, r0, 1    | r9 = 1 (decrement step)  |
+| 1  | ADDI r10, r0, 43  | r10 = 43 (loop limit)    |
+| 2  | ADDI r11, r0, 0   | r11 = 0 (counter)        |
+| 3  | ADDI r17, r0, 0   | r17 = 0 (DAC input)      |
+| 4  | ADD r17, r17, r11 | Accumulate into r17      |
+| 5  | ADDI r11, r11, 1  | Increment counter        |
+| 6  | BNE r11, r10, -4  | Repeat loop until r11=43 |
+| 7  | ADD r17, r17, r11 | Accumulate r17           |
+| 8  | SUB r17, r17, r11 | Adjust r17               |
+| 9  | SUB r11, r11, r9  | Decrement counter        |
+| 10 | BNE r11, r9, -4   | Repeat loop until r11=1  |
+| 11 | SUB r17, r17, r11 | Final adjust             |
+| 12 | BEQ r0, r0, ...   | Infinite loop            |
 
-Data Flow: Instruction Memory → CPU Pipeline → Register r17 → DAC → Analog OUT
+---
 
-⚖️ DAC Conversion Example
+### 🔄 Execution Timeline
 
-Scaling formula:
+| Phase               | Registers  | r17 Value          | Behavior           |
+| ------------------- | ---------- | ------------------ | ------------------ |
+| Ramp (Loop1)        | r11 = 0→42 | r17 = Σ0..42 = 903 | Monotonic increase |
+| Peak                | r11 = 43   | r17 = 946          | Transient maximum  |
+| Oscillation (Loop2) | r11 = 43→1 | r17 = 903 ± r11    | Oscillating decay  |
+| Final               | r11 = 1    | r17 adjusted       | Holds steady       |
 
-𝑉
-OUT
-=
-𝑟
-17
-1023
-×
-𝑉
-REFSPAN
-V
-OUT
-	​
-
-=
-1023
-r17
-	​
-
-×V
-REFSPAN
-	​
+**Data Flow:** Instruction Memory → CPU Pipeline → Register r17 → DAC → Analog OUT
 
 
-With VREFSPAN = 1.0 V:
 
-r17 Value	DAC Output Voltage
-903	0.882 V
-946 (peak)	0.925 V
+### ⚖️ DAC Conversion
 
-💡 Tip: In GTKWave, switch OUT to Analog Step format for proper DAC visualization.
+[
+V_\text{OUT} = \frac{r17}{1023} \times V_\text{REFSPAN} \quad (V_\text{REFSPAN} = 1.0 V)
+]
 
-🛠️ Troubleshooting
+| r17 Value  | DAC Output Voltage |
+| ---------- | ------------------ |
+| 903        | 0.882 V            |
+| 946 (peak) | 0.925 V            |
 
-⚠️ Module Redefinition Error: Ensure each Verilog/TLV file is included only once during compilation.
-
-Verify signal names and file paths are correct when including headers or modules.
-
-📸 Architecture Diagram Placeholder:
-
-![VSDBabySoC Architecture](path/to/babysoc_architecture.png)
+💡 *Switch `OUT` in GTKWave to **Analog Step** for proper DAC visualization.*
 
 
-✅ Deliverables for Lab
 
-Simulation logs (pre_synth_sim.out)
+---
+### Waveforms and observation
 
-GTKWave waveform screenshots
+## VSDBabySoC Pre-Synthesis Observation
 
-Short explanations for each waveform (reset, clock, DAC output)
+### 🖼️ Screenshot 1
+![VSDBabySoC Screenshot](image/pre_synth1.png)
 
-If you want, I can merge this with your Part 1 README into one polished, professional GitHub README that includes:
+In this simulation:
 
-SoC fundamentals
+- The **`OUT`** output of the **DAC** (declared as a `real reg`) gives the **correct corresponding analog value**.
+- The **`OUT`** signal of the **BabySoC module** (declared as a `wire`) gives a **digital value** — here, **`1`**, which is a **simple round-off of the analog value**.
 
-BabySoC intro
+---
 
-VSDBabySoC details
+### 🖼️ Screenshot 2
+![VSDBabySoC Screenshot](image/pre_synth2.png)
 
-Project structure & simulation steps
+In this case:
+
+- The **`OUT`** output of the **DAC** (declared as a `real reg`) again gives the **correct corresponding analog value**.
+- The **`OUT`** signal of the **RVMyth core module** (declared as a `register`) gives a **digital value** — here, **`1`**, which is again a **rounded-off version of the analog signal**.
+
+---
+
+### 🔍 Summary
+
+In both cases:
+
+- The **DAC** correctly outputs the **analog signal**.  
+- The **SoC/Core module outputs** show only the **digital interpretation (rounded)** of that analog value, depending on whether the signal is declared as a `wire` or a `register`.
+
+---
+
+### 🛠️ Troubleshooting
+
+* ⚠️ **Module Redefinition:** Ensure each Verilog/TLV file is included only once.
+* Verify **signal names and file paths** during compilation.
+
+
+---
+
+### ✅ Deliverables
+
+* Simulation logs (`pre_synth_sim.out`)
+* GTKWave waveform screenshots
+* Short explanations for each waveform (reset, clock, DAC output)
+
+---
+### References
+> [manili/VSDBabySoC](https://github.com/manili/VSDBabySoC)
+> [hemanthkumardm/SFAL-VSD-SoC-Journey](https://github.com/hemanthkumardm/SFAL-VSD-SoC-Journey/tree/main/21.%20VSDBabySoC%20Design%20and%20Modeling)
