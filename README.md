@@ -211,12 +211,12 @@ V_\text{OUT} = \frac{r17}{1023} \times V_\text{REFSPAN} \quad (V_\text{REFSPAN} 
 ## VSDBabySoC Pre-Synthesis Observation
 
 ### 🖼️ Screenshot 1
-![VSDBabySoC Screenshot](images_week2/pre_synth1.png)
+![VSDBabySoC Screenshot](images_week2/pre_synth_1.png)
 
 In this simulation:
 
-- The **`OUT`** output of the **DAC** (declared as a `real reg`) gives the **correct corresponding analog value**.
-- The **`OUT`** signal of the **BabySoC module** (declared as a `wire`) gives a **digital value** — here, **`1`**, which is a **simple round-off of the analog value**.
+- The **`OUT`** output of the **DAC** (declared as a `real reg`) gives the **correct corresponding analog value**  **`0.48.48 `**.
+- The **`OUT`** signal of the **BabySoC module** (declared as a `wire`) gives a **digital value** — here, **`0`**, which is a **simple round-off of the analog value**.
 
 ---
 
@@ -225,8 +225,8 @@ In this simulation:
 
 In this case:
 
-- The **`OUT`** output of the **DAC** (declared as a `real reg`) again gives the **correct corresponding analog value**.
-- The **`OUT`** signal of the **RVMyth core module** (declared as a `register`) gives a **digital value** — here, **`1`**, which is again a **rounded-off version of the analog signal**.
+- The **`OUT`** output of the **DAC** (declared as a `real reg`) again gives the **correct corresponding analog value** **`0.924`**.
+- The **`OUT`** signal of the **RVMyth core module** (declared as a `register`) gives a **digital value** — here, **`0`**, which is again a **rounded-off version of the analog signal**.
 
 ---
 
